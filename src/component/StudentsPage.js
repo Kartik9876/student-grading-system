@@ -43,23 +43,45 @@ const StudentsPage = () => {
   };
   
   const downloadExcel = () => {
-    const studentData = students.map(student => {
-      const percentage = calculatePercentage(student.marks);
-      const grade = getGrade(percentage);
-      return {
-        RollNo: student.rollNo,
-        Name: student.studentName,
-        ...student.marks,
-        Percentage: percentage.toFixed(2) + "%",
-        Grade: grade,
-        Status: percentage >= 40 ? "Pass" : "Fail",
-      };
+    if (students.length === 0) return;
+
+    // Get all unique subjects from student data
+    const allSubjects = new Set();
+    students.forEach(student => {
+      Object.keys(student.marks).forEach(subject => allSubjects.add(subject));
     });
   
-    const worksheet = XLSX.utils.json_to_sheet(studentData);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Students");
+    // Sort subjects alphabetically
+    const sortedSubjects = [...allSubjects].sort();
+
+    // Sort students by roll number (ascending)
+    const sortedStudents = [...students].sort((a, b) => a.rollNo - b.rollNo);
+
   
+    // Prepare data for Excel
+    const data = sortedStudents.map(student => {
+      const row = {
+        "Roll No": student.rollNo,
+        "Name": student.studentName,
+      };
+  
+      // Maintain subject order
+      sortedSubjects.forEach(subject => {
+        row[subject] = student.marks[subject] || "N/A"; // Show "N/A" if no marks
+      });
+  
+      row["Percentage"] = calculatePercentage(student.marks).toFixed(2) + "%";
+      row["Grade"] = getGrade(calculatePercentage(student.marks));
+  
+      return row;
+    });
+  
+    // Convert data to Excel
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Students Data");
+  
+    // Download Excel file
     XLSX.writeFile(workbook, "Student_Grades.xlsx");
   };
   
@@ -73,8 +95,11 @@ const StudentsPage = () => {
   };
 
   const calculatePercentage = (marks) => {
+    const subjectCount = Object.keys(marks).length; // Count only subjects student has marks for
+    if (subjectCount === 0) return 0;
+  
     const totalMarks = Object.values(marks).reduce((acc, mark) => acc + Number(mark), 0);
-    return subjects.length > 0 ? (totalMarks / (subjects.length * 100)) * 100 : 0;
+    return (totalMarks / (subjectCount * 100)) * 100;
   };
 
   const getGrade = (percentage) => {
@@ -119,6 +144,7 @@ const StudentsPage = () => {
           <button onClick={addOrUpdateStudent} className="btn btn-blue">Add/Update Student</button>
           <button onClick={() => navigate("/")} className="btn btn-green">Go to Subjects</button>
           <button onClick={downloadExcel} className="btn btn-blue">Download Excel</button>
+          <button onClick={() => navigate("/dashboard")} className="btn btn-purple">Go to Dashboard</button>
 
         </div>
       </div>

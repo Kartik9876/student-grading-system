@@ -19,7 +19,10 @@
   }
   
   .input-field {
-    padding: 8px;
+    width: 70%;  /* Reduced from 100% */
+    max-width: 400px;  /* Prevents it from being too wide on larger screens */
+    padding: 10px;
+    margin: 8px auto; /* Centers the input */
     border: 1px solid #ccc;
     border-radius: 4px;
     flex: 1;
@@ -39,6 +42,9 @@
   
   .btn-green {
     background-color: #28a745;
+  }
+  .btn-purple{
+    background-color: #f300fb;
   }
   
   .students-container {
@@ -84,13 +90,11 @@
   }
   
   .delete-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
     background: none;
     border: none;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
+    color: #666;
   }
   
   .delete-btn:hover {
@@ -187,5 +191,28 @@
   .delete-btn:hover {
     color: red;
   }
-   
-  
+  .dataCard {
+    background-color: #efefef;
+    border-radius: 0.5em;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 1em;
+  }
+  .barChart {
+    width: 92%;
+    height: 30rem;
+  }
+  .pieChart{
+    width:50%;
+    height: 20rem;
+  }
+  .chart-container {
+    width: 45%; /* Adjust as needed */
+    max-width: 600px;
+    min-width: 300px;
+    height: 400px;
+}
+  .charts-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }

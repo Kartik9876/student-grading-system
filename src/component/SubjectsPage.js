@@ -25,10 +25,10 @@ const SubjectsPage = () => {
     }
   };
 
-  const deleteSubject = async (id) => {
+  const deleteSubject = async (subjectName) => {
     try {
-      await axios.delete(`http://localhost:5000/subjects/${id}`);
-      setSubjects(subjects.filter((subject) => subject._id !== id));
+      await axios.delete(`http://localhost:5000/subjects/${subjectName}`);
+      setSubjects(subjects.filter(subject => subject.name !== subjectName));
     } catch (err) {
       console.error(err);
     }
@@ -56,7 +56,7 @@ const SubjectsPage = () => {
           {subjects.map((subject) => (
             <li key={subject._id} className="subject-item">
               <span>{subject.name}</span>
-              <button className="delete-btn" onClick={() => deleteSubject(subject._id)}>✖</button>
+              <button className="delete-btn" onClick={() => deleteSubject(subject.name)}>✖</button>
             </li>
           ))}
         </ul>
