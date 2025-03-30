@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SubjectsPage from "./component/SubjectsPage";
+import StudentsPage from "./component/StudentsPage";
+import "./Style.css";
 
-function App() {
+const App = () => {
+  const [subjects, setSubjects] = useState([]);
+  const [students, setStudents] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<SubjectsPage subjects={subjects} setSubjects={setSubjects} />} />
+        <Route path="/students" element={<StudentsPage subjects={subjects} students={students} setStudents={setStudents} />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
