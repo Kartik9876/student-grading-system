@@ -205,14 +205,3 @@
     width:50%;
     height: 20rem;
   }
-  .chart-container {
-    width: 45%; /* Adjust as needed */
-    max-width: 600px;
-    min-width: 300px;
-    height: 400px;
-}
-  .charts-wrapper {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
