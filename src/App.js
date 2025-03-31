@@ -4,6 +4,8 @@ import SubjectsPage from "./component/SubjectsPage";
 import StudentsPage from "./component/StudentsPage";
 import DashboardPage from "./component/DashboardPage";
 import "./Style.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 const App = () => {
   const [subjects, setSubjects] = useState([]);

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../Style.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 const SubjectsPage = () => {
@@ -56,7 +57,9 @@ const SubjectsPage = () => {
           {subjects.map((subject) => (
             <li key={subject._id} className="subject-item">
               <span>{subject.name}</span>
-              <button className="delete-btn" onClick={() => deleteSubject(subject.name)}>✖</button>
+              <button className="delete-btn" onClick={() => deleteSubject(subject.name)}>
+                  <i className="fas fa-trash"></i>
+              </button>
             </li>
           ))}
         </ul>
