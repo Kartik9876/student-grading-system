@@ -141,10 +141,18 @@ const StudentsPage = () => {
               className="input-field"
             />
           ))}
-          <button onClick={addOrUpdateStudent} className="btn btn-blue">Add/Update Student</button>
-          <button onClick={() => navigate("/")} className="btn btn-green">Go to Subjects</button>
-          <button onClick={downloadExcel} className="btn btn-blue">Download Excel</button>
-          <button onClick={() => navigate("/dashboard")} className="btn btn-purple">Go to Dashboard</button>
+      <button onClick={addOrUpdateStudent} className="btn btn-blue">
+              Add/Update Student 
+      </button>
+      <button onClick={() => navigate("/")} className="btn btn-green">
+          <i className="fa fa-arrow-left"></i> Go to Subjects
+      </button>
+      <button onClick={downloadExcel} className="btn btn-blue">
+          Download Excel <i className="fa fa-download"></i>
+      </button>
+      <button onClick={() => navigate("/dashboard")} className="btn btn-purple">
+          Analysis Dashboard <i className="fa fa-bar-chart"></i>
+      </button>
 
         </div>
       </div>

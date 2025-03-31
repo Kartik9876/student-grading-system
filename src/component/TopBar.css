@@ -1,0 +1,21 @@
+.top-bar {
+    width: 100%;
+    background: linear-gradient(145deg, #a9f0b8, #0056b3); /* Cool gradient */
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    position: fixed; /* Stays at the top */
+    height: 70px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Keeps it above other elements */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Push content down so it's not hidden under the fixed bar */
+  .main-container {
+    margin-top: 70px; /* Adjust height based on top bar */
+  }
+  
