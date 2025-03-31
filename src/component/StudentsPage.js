@@ -158,7 +158,9 @@ const StudentsPage = () => {
 
             return (
               <div key={student.rollNo} className="student-item">
-                <button className="delete-btn" onClick={() => deleteStudent(student.rollNo)}>✖</button>
+                <button className="delete-btn" onClick={() => deleteStudent(student.rollNo)}>
+                  <i className="fas fa-trash"></i>
+                </button>
                 <strong>{student.studentName} (Roll No: {student.rollNo})</strong>
                 <ul>
                   {Object.entries(student.marks).map(([subject, mark]) => (

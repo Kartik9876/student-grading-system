@@ -19,13 +19,17 @@
   }
   
   .input-field {
-    width: 70%;  /* Reduced from 100% */
-    max-width: 400px;  /* Prevents it from being too wide on larger screens */
+    width: 50%;  /* Reduced from 100% */
+    max-width: 300px;  /* Prevents it from being too wide on larger screens */
     padding: 10px;
     margin: 8px auto; /* Centers the input */
     border: 1px solid #ccc;
     border-radius: 4px;
     flex: 1;
+    border: none;
+    border-bottom: 2px solid #9a9595;
+    background: transparent;
+    transition: border-color 0.3s ease-in-out;
   }
   
   .btn {
@@ -38,16 +42,23 @@
   
   .btn-blue {
     background-color: #007bff;
+    width: 300px;
+    margin-left: 50px;
   }
   
   .btn-green {
     background-color: #28a745;
+    width: 300px;
+    margin-left: 50px;
   }
   .btn-purple{
     background-color: #f300fb;
+    width: 300px;
+    margin-left: 50px;
   }
   
   .students-container {
+    background-color: #cdeed4;
     display: flex;
     height: 100vh;
     padding: 20px;
@@ -57,9 +68,10 @@
   .form-box {
     flex: 1;
     max-width: 400px;
-    background: #f8f9fa;
+    background: #e8ecec;
+    margin-left: 10px;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: fit-content; /* Keeps form fixed */
   }
@@ -68,11 +80,11 @@
     flex: 2;
     display: flex;
     flex-direction: column;
-    background: white;
+    background: rgb(228, 224, 224);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 90vh; /* Fixed height */
+    height: 85vh; /* Fixed height */
     overflow-y: auto; /* Enables scrolling */
   }
   
@@ -83,23 +95,38 @@
   }
   
   .student-item {
-    background: #f0f0f0;
+    background: #fefffe;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 30px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   }
+  .student-item:hover {
+    transform: scale(1.02);
+    background: linear-gradient(135deg, #d0d0d0, #f0f0f0);
+}
   
   .delete-btn {
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
-    color: #666;
+    color: black;
+    transition: color 0.3s ease, transform 0.2s;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
   
-  .delete-btn:hover {
-    color: red;
-  }
+  
+  
   
   .pass-text {
     color: green;
@@ -117,12 +144,15 @@
   }
 
   .subjects-container {
+    background-color: #cdeed4;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
-    padding: 20px;
-  }
+    padding: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }  
   
   .form-box {
     width: 40%;
@@ -132,8 +162,8 @@
     justify-content: center;
     align-items: center;
     background: #f5f5f5;
-    border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 70px;
+    box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.1);
     padding: 20px;
   }
   
@@ -144,6 +174,7 @@
   }
   
   .form-content {
+    
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -151,45 +182,97 @@
   }
   
   .input-field {
-    width: 100%;
-    padding: 10px;
+    width: 80%;
+    padding: 1%;
     font-size: 16px;
   }
   
   .subjects-list-box {
     width: 55%;
+    margin-right: 20px;
   }
   
   .title {
-    font-size: 28px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
     font-weight: bold;
   }
   
   .subject-list {
     list-style: none;
     padding: 0;
+    margin: 0px;
   }
+  
   .subject-item {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    margin: 5px 0;
-    background: #e0e0e0;
-    border-radius: 5px;
+    padding: 15px 20px;
+    margin: 10px 0;
+    background: linear-gradient(135deg, #e3e3e3, #ffffff);
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .delete-btn {
+  .subject-item:hover {
+    transform: scale(1.02);
+    background: linear-gradient(135deg, #d0d0d0, #f0f0f0);
+  }
+  
+  .subject-name {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .delete-btn-subject {
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
     color: black;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+  .delete-btn-subject:hover {
+    color: red;
+    transform: scale(1.2);
   }
   
+  /* Delete button for students */
+  .delete-btn-student {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+    transition: color 0.3s ease, transform 0.2s;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+  
+  .delete-btn-student:hover {
+    color: red;
+    transform: scale(1.2);
+  }
   .delete-btn:hover {
     color: red;
+    transform: scale(1.2);
   }
   .dataCard {
     background-color: #efefef;
