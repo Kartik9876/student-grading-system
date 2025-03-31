@@ -43,52 +43,74 @@ const DashboardPage = () => {
             {
                 label: "Average Marks",
                 data: calculateAverageMarks().map((data) => data.average),
-                backgroundColor: "rgba(75, 192, 192, 0.6)",
-                borderColor: "rgba(75, 192, 192, 1)",
-                borderWidth: 1,
-                borderRadius:5
+                backgroundColor: [
+                    "rgba(75, 192, 192, 0.8)", 
+                    "rgba(255, 99, 132, 0.8)", 
+                    "rgba(54, 162, 235, 0.8)", 
+                    "rgba(255, 206, 86, 0.8)"
+                ],
+                borderColor: "rgba(255, 255, 255, 0.8)",
+                borderWidth: 2,
+                borderRadius: 10, 
+                hoverBackgroundColor: "rgba(255, 255, 255, 0.5)",
             },
         ],
     };
-
-
+    
     const passFailData = {
         labels: ["Pass", "Fail"],
         datasets: [
             {
                 label: "Pass/Fail Ratio",
                 data: [
-                    students.filter((student) => {
+                    students.filter(student => {
                         const totalMarks = Object.values(student.marks).reduce((acc, mark) => acc + Number(mark), 0);
                         const percentage = subjects.length > 0 ? (totalMarks / (subjects.length * 100)) * 100 : 0;
                         return percentage >= 40;
                     }).length,
-                    students.filter((student) => {
+                    students.filter(student => {
                         const totalMarks = Object.values(student.marks).reduce((acc, mark) => acc + Number(mark), 0);
                         const percentage = subjects.length > 0 ? (totalMarks / (subjects.length * 100)) * 100 : 0;
                         return percentage < 40;
                     }).length,
                 ],
-                backgroundColor: ["#36A2EB", "#FF6384"],
+                backgroundColor: ["#2ECC71", "#E74C3C"],
+                borderWidth: 2,
+                hoverBackgroundColor: ["#27AE60", "#C0392B"],
             },
         ],
     };
-
+    
     return (
         <div>
             <h1>Dashboard</h1>
-            <button className="btn btn-blue" onClick={() => navigate("/students")}>Back to Students</button>
+            <button className="btn btn-blue" onClick={() => navigate("/students")}>
+              <i className="fas fa-arrow-left"></i> Back to Students
+            </button>
+
+            {/* Flexbox Container for Charts */}
+            <div className="chartContainer">
                 <div className="dataCard barChart">
                     <h2>Average Marks Per Subject</h2>
                     <Bar data={barChartData} />
                 </div>
+                
                 <div className="dataCard pieChart">
-                    <h2>Pass/Fail Distribution</h2>
-                    <Pie data={passFailData} />
-                </div>
-            
+    <h2>Pass/Fail Distribution</h2>
+    <div className="smallPieChart"> {/* Wrapper for resizing */}
+        <Pie 
+            data={passFailData} 
+            options={{
+                maintainAspectRatio: false, 
+                responsive: true
+            }} 
+        />
+    </div>
+</div>
+
+            </div>
         </div>
-    );
+    );    
 };
 
 export default DashboardPage;

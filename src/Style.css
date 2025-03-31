@@ -19,6 +19,7 @@
   }
   
   .input-field {
+    margin-top: 20px;
     width: 50%;  /* Reduced from 100% */
     max-width: 300px;  /* Prevents it from being too wide on larger screens */
     padding: 10px;
@@ -70,10 +71,14 @@
     max-width: 400px;
     background: #e8ecec;
     margin-left: 10px;
+    overflow: auto;
     padding: 20px;
     border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: fit-content; /* Keeps form fixed */
+  }
+  .form-box::-webkit-scrollbar {
+    width: 6px;
   }
   
   .students-list-box {
@@ -280,11 +285,75 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding: 1em;
   }
-  .barChart {
-    width: 92%;
-    height: 30rem;
-  }
-  .pieChart{
-    width:50%;
-    height: 20rem;
-  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background: #f3f4f6;
+    color: #333;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Ensures responsiveness */
+  gap: 20px;
+  padding: 20px;
+}
+
+.chartContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Adjusts for small screens */
+  width: 70%;
+  max-width: 1200px;
+}
+
+.dataCard {
+  flex: 1;
+  min-width: 350px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dataCard:hover {
+  transform: scale(1.02);
+}
+
+.barChart {
+  background: linear-gradient(135deg, #ECF0F1, #BDC3C7);
+}
+
+.pieChart {
+  background: linear-gradient(135deg, #EAEDED, #D5DBDB);
+  margin-left: 100px;
+}
+
+.smallPieChart {
+  width: 400px;  /* Adjust size */
+  height: 250px; /* Keep it square */
+  margin: auto;  /* Center it */
+}
+
+.btn-blue {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-blue:hover {
+  background-color: #2980b9;
+}
