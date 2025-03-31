@@ -60,7 +60,7 @@
   .students-container {
     background-color: #cdeed4;
     display: flex;
-    height: 100vh;
+    height: 94vh;
     padding: 20px;
     gap: 20px;
   }
@@ -148,7 +148,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: 100vh;
+    height: 91vh;
     padding: 30px;
     gap: 20px;
     flex-wrap: wrap;
