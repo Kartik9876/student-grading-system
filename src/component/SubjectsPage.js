@@ -48,7 +48,7 @@ const SubjectsPage = () => {
             className="input-field"
           />
           <button onClick={addSubject} className="btn btn-blue">Add Subject</button>
-          <button onClick={() => navigate("/students")} className="btn btn-green">
+          <button onClick={() => navigate("/")} className="btn btn-green">
             Go to Students
             <i className="fa fa-arrow-right" ></i>
           </button>

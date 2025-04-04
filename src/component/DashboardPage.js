@@ -84,7 +84,7 @@ const DashboardPage = () => {
     return (
         <div>
             <h1>Dashboard</h1>
-            <button className="btn btn-blue" onClick={() => navigate("/students")}>
+            <button className="btn btn-blue" onClick={() => navigate("/")}>
               <i className="fas fa-arrow-left"></i> Back to Students
             </button>
 

@@ -144,7 +144,7 @@ const StudentsPage = () => {
       <button onClick={addOrUpdateStudent} className="btn btn-blue">
               Add/Update Student 
       </button>
-      <button onClick={() => navigate("/")} className="btn btn-green">
+      <button onClick={() => navigate("/subjects")} className="btn btn-green">
           <i className="fa fa-arrow-left"></i> Go to Subjects
       </button>
       <button onClick={downloadExcel} className="btn btn-blue">

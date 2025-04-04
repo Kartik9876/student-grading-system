@@ -16,8 +16,8 @@ const App = () => {
       <TopBar />  {/* Top Bar is outside Routes to always stay visible */}
       <div className="main-container"> {/* Added a wrapper to push content down */}
         <Routes>
-          <Route path="/" element={<SubjectsPage subjects={subjects} setSubjects={setSubjects} />} />
-          <Route path="/students" element={<StudentsPage subjects={subjects} students={students} setStudents={setStudents} />} />
+          <Route path="/subjects" element={<SubjectsPage subjects={subjects} setSubjects={setSubjects} />} />
+          <Route path="/" element={<StudentsPage subjects={subjects} students={students} setStudents={setStudents} />} />
           <Route path="/dashboard" element={<DashboardPage />} />
         </Routes>
       </div>
